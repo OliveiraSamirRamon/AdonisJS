@@ -1,0 +1,33 @@
+@layout('layouts.main')
+
+@section('title')
+JobPostr - Post your Job
+@endsection
+
+@section('extracss')
+{{ style('forms') }},
+@endsection
+
+@section('content')
+@if(flashMessage('message'))
+    <span>{{ flashMessage('message') }}</span>
+@endif
+<h1>Perfil</h1>
+
+<div class="job-container">
+  <form class="" action="index.html" method="post">
+
+    <label for="title">Nome</label>
+    <input type="text" name="title" value="{{ user.username }}">
+
+    <label for="title">Email</label>
+    <input type="text" name="title" value="{{ user.email }}">
+
+    <button type="submit">Atualizar perfil</button><br>
+  </form>
+</div>
+
+
+
+
+@endsection

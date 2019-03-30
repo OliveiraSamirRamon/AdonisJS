@@ -1,0 +1,49 @@
+@layout('layouts.main')
+
+@section('title')
+  Jobpostr - Join Now
+@endsection
+
+@section('extracss')
+{{style('forms')}},
+{{ style('novo') }}
+
+@endsection
+
+@section('content')
+
+  <div class="novo-container">
+    <form action="{{route ('UserController.create')}}" method="POST">
+
+      {{ csrfField() }}
+      <label for="username">Username</label>
+      <input type="text" name="username" value="{{old('username', '')}}" placeholder="username">
+      @if(hasErrorFor('username'))
+        <span>
+          {{ getErrorFor('username') }}
+        </span>
+      @endif
+
+      <label for="username">Email</label>
+      <input type="text" name="email" value="{{old('email', '')}}" placeholder="email">
+      @if(hasErrorFor('email'))
+        <span>
+          {{ getErrorFor('email') }}
+        </span>
+      @endif
+
+
+      <label for="username">Password</label>
+      <input type="password" name="password" placeholder="password">
+      @if(hasErrorFor('password'))
+        <span>
+          {{ getErrorFor('password') }}
+        </span>
+      @endif
+
+
+        <button type="submit" >cadastrar</button>
+    </form>
+  </div>
+
+@endsection
